@@ -1,0 +1,13 @@
+# dirs
+
+# files
+*.exe
+
+# vs stuff
+.vs
+Build
+x64
+*.sln
+*.vcxproj
+*.filters
+*.user
