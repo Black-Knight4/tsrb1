@@ -2,9 +2,9 @@
 
 ## Lekcije
 
-[switch case](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/switch_case.docx) convert to pdf  
-[for loop]()  
-[one dimensional arrays]()  
+[switch case](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/switch_case/switch_case.pdf) 
+[for loop](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/for-petlja_1/For-petlja_1.pdf)  
+[one dimensional arrays](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/jednodimenzionalno-polje/Jednodimenzionalno-polje.pdf)  
 
 ## Laboratorijske vjezbe
 
@@ -29,6 +29,7 @@
 [LV17: Grananje u programu](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv17/17.%20LV%20-%20C%20-%20Grananje%20u%20programu%20(1).pdf)  
 [LV18: Logicke operacije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv18/18.%20LV%20-%20C%20-%20Logi%C6%92ke%20operacije.pdf)  
 [LV19: Switch](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv19/19.%20LV%20-%20Switch.pdf)  
+[LV19: Znakovi i znakovne funkcije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv19/19.%20LV%20-%20C%20-%20Znakovi%20i%20znakovne%20funkcije.pdf)  
 [LV20: ]()  (doesnt exist)  
 [LV21: ]()  (doesnt exist)  
 [LV22: Naredba for](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv22/22.%20LV%20-%20C%20-%20Naredba%20for.pdf)  
