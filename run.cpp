@@ -2,18 +2,48 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
 
 namespace fs = std::filesystem;
 
+bool hasLast = false;
+std::string last;
+
+void run(std::string quotedPath) {
+	std::string command = "gcc " + quotedPath + " -o out.exe";
+	hasLast = true;
+	last = command;
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+
+	system(command.c_str());
+
+#ifdef _WIN32
+	system("out.exe");
+	printf("\n\n");
+	system("pause");
+#else
+	system("./out.exe");
+	printf("\n\n");
+	system("echo Press any key to continue...");
+	system("read -n1 -r");
+#endif
+}
+
 int main(int argc, char* argv[])
 {
-	bool hasLast = false;
-	std::string last;
 	fs::path current = (argc > 1) ? fs::path(argv[1]) : fs::current_path();
 
 	while (true)
 	{
+#ifdef _WIN32
 		system("cls");
+#else
+		system("clear");
+#endif
 		std::vector<fs::directory_entry> items;
 		items.reserve(64);
 
@@ -44,13 +74,6 @@ int main(int argc, char* argv[])
 		}
 
 		if (choice == -1) {
-			if (hasLast) {
-				system("cls");
-				system(last.c_str());
-				system("out.exe");
-				printf("\n\n");
-				system("pause");
-			}
 			continue;
 		}
 
@@ -79,14 +102,7 @@ int main(int argc, char* argv[])
 			fs::path fullPath = current / selected.path().filename();
 
 			std::string quotedPath = "\"" + fullPath.string() + "\"";
-			std::string command = "gcc " + quotedPath + " -o out.exe";
-			hasLast = true;
-			last = command;
-			system("cls");
-			system(command.c_str());
-			system("out.exe");
-			printf("\n\n");
-			system("pause");
+			run(quotedPath);
 		}
 	}
 	return 0;
