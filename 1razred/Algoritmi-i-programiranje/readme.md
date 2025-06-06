@@ -2,7 +2,7 @@
 
 ## Lekcije
 
-[switch case](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/switch_case/switch_case.pdf) 
+[switch case](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/switch_case/switch_case.pdf)  
 [for loop](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/for-petlja_1/For-petlja_1.pdf)  
 [one dimensional arrays](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/jednodimenzionalno-polje/Jednodimenzionalno-polje.pdf)  
 
