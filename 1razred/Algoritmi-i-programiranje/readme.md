@@ -45,6 +45,6 @@
 ## Ispiti i ponavljanja
 
 [Ponavljanje gradiva prvog polugodista](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/tests-and-revisions/Ponavljanje%20gradiva%20prvog%20polugodi%C5%A1ta.pdf)  
-[Petlje - provjera](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/tests-and-revisions/Provjera%20-%20petlje.pdf)
+[Petlje - provjera](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/tests-and-revisions/Provjera%20-%20petlje.pdf)  
 [Grananje2 - provjera](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/tests-and-revisions/Provjera%20grananje%202.pdf)
 
