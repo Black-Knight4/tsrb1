@@ -2,7 +2,7 @@
 
 ## Lekcije
 
-[switch case]()  
+[switch case](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lectures/switch_case.docx) convert to pdf  
 [for loop]()  
 [one dimensional arrays]()  
 
@@ -14,7 +14,7 @@
 [LV4: ]() (doesnt exist)  
 [LV5: if](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv5/05.%20LV%20-%20Algoritmi%20-%20If.pdf)  
 [LV6: Logicke operacije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv6/06.%20LV%20-%20Algoritmi%20-%20Logi%C6%92ke%20operacije.pdf)  
-[LV7: Ponavljanje (if)](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv7/07.%20Ponavljanje%20(if).pdf)  
+[LV7: if - Ponavljanje](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv7/07.%20Ponavljanje%20(if).pdf)  
 [LV8: Algoritmi s ponavljanjem dok je ispunjen uvjet](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv8/08.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20dok%20je%20ispunjen%20uvjet.pdf)  
 [LV9: Algoritmi s ponavljanjem unaprijed poznati broj puta](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv9/09.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20unaprijed%20poznati%20broj%20puta.pdf)  
 [LV10: Algoritmi sa ponavljanjem - ponavljanje](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv10/10.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20-%20ponavljanje.pdf)  
@@ -44,4 +44,7 @@
 
 ## Ispiti i ponavljanja
 
+[Ponavljanje gradiva prvog polugodista](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/tests-and-revisions/Ponavljanje%20gradiva%20prvog%20polugodi%C5%A1ta.pdf)  
+[Petlje - provjera](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/tests-and-revisions/Provjera%20-%20petlje.pdf)
+[Grananje2 - provjera](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/tests-and-revisions/Provjera%20grananje%202.pdf)
 
