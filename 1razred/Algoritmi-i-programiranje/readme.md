@@ -8,15 +8,15 @@
 
 ## Laboratorijske vjezbe
 
-[LV1: Raspoloziva programska podrska za razvoj algoritama](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv1/01.%20LV%20-%20Algoritmi%20-%20Raspolo%C2%BAiva%20programska%20podr%CF%84ka%20za%20razvoj%20algoritama.pdf)  
-[LV2: Naredba za dodjeljivanje i aritmeticke operacije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv2/02.%20LV%20-%20Algoritmi%20-%20Naredba%20za%20dodjeljivanje%20i%20aritmeti%C6%92ke%20operacije.pdf)  
-[LV3: Matematicke funkcije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv3/03.%20LV%20-%20Algoritmi%20-%20Matemati%C6%92ke%20funkcije.pdf)  
+[LV1: Raspoloziva programska podrska za razvoj algoritama](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv01/01.%20LV%20-%20Algoritmi%20-%20Raspolo%C2%BAiva%20programska%20podr%CF%84ka%20za%20razvoj%20algoritama.pdf)  
+[LV2: Naredba za dodjeljivanje i aritmeticke operacije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv02/02.%20LV%20-%20Algoritmi%20-%20Naredba%20za%20dodjeljivanje%20i%20aritmeti%C6%92ke%20operacije.pdf)  
+[LV3: Matematicke funkcije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv03/03.%20LV%20-%20Algoritmi%20-%20Matemati%C6%92ke%20funkcije.pdf)  
 [LV4: ]() (doesnt exist)  
-[LV5: if](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv5/05.%20LV%20-%20Algoritmi%20-%20If.pdf)  
-[LV6: Logicke operacije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv6/06.%20LV%20-%20Algoritmi%20-%20Logi%C6%92ke%20operacije.pdf)  
-[LV7: if - Ponavljanje](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv7/07.%20Ponavljanje%20(if).pdf)  
-[LV8: Algoritmi s ponavljanjem dok je ispunjen uvjet](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv8/08.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20dok%20je%20ispunjen%20uvjet.pdf)  
-[LV9: Algoritmi s ponavljanjem unaprijed poznati broj puta](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv9/09.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20unaprijed%20poznati%20broj%20puta.pdf)  
+[LV5: if](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv05/05.%20LV%20-%20Algoritmi%20-%20If.pdf)  
+[LV6: Logicke operacije](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv06/06.%20LV%20-%20Algoritmi%20-%20Logi%C6%92ke%20operacije.pdf)  
+[LV7: if - Ponavljanje](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv07/07.%20Ponavljanje%20(if).pdf)  
+[LV8: Algoritmi s ponavljanjem dok je ispunjen uvjet](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv08/08.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20dok%20je%20ispunjen%20uvjet.pdf)  
+[LV9: Algoritmi s ponavljanjem unaprijed poznati broj puta](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv09/09.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20unaprijed%20poznati%20broj%20puta.pdf)  
 [LV10: Algoritmi sa ponavljanjem - ponavljanje](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv10/10.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20-%20ponavljanje.pdf)  
 [LV10: Algoritmi sa ponavljanjem - ponavljanje2](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv10/10.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20-%20ponavljanje%20(1).pdf)  
 [LV10: Algoritmi sa ponavljanjem dok je ispunjen uvjet postavljen na kraju](https://github.com/Josakko/tsrb/blob/main/1razred/Algoritmi-i-programiranje/lv10/10.%20LV%20-%20Algoritmi%20-%20Algoritmi%20sa%20ponavljanjem%20dok%20je%20ispunjen%20uvjet%20postavljen%20%20na%20kraju.pdf)  
