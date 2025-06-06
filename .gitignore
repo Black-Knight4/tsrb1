@@ -3,6 +3,8 @@
 
 # files
 *.exe
+*.out
+*.bin
 
 # vs stuff
 .vs
