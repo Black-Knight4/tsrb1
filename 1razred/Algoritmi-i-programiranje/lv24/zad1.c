@@ -3,13 +3,13 @@
 
 
 void main() {
-	char a;
+    char a;
  
-	do {
-		printf("enter char: ");
-		scanf(" %c", &a);
-	} while (!isalpha(a));
+    do {
+        printf("enter char: ");
+        scanf(" %c", &a);
+    } while (!isalpha(a));
  
-	if (isupper(a)) printf("upper");
-	else printf("lower");
+    if (isupper(a)) printf("upper");
+    else printf("lower");
 }

@@ -3,13 +3,13 @@
 
 
 void main() {
-	char a;
+    char a;
  
-	do {
-		printf("enter char:");
-		scanf_s(" %c", &a);
-	} while (!isupper(a));
+    do {
+        printf("enter char:");
+        scanf_s(" %c", &a);
+    } while (!isupper(a));
  
-	for (int i = 'A'; i < a; i++) 
-		printf("%c, ", i);
+    for (int i = 'A'; i < a; i++) 
+        printf("%c, ", i);
 }
