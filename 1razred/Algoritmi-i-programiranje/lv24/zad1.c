@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-
 void main() {
     char a;
  
@@ -10,10 +9,8 @@ void main() {
         scanf(" %c", &a);
     } while (!isalpha(a));
  
-    if (isupper(a)) {
+    if (isupper(a)) 
         printf("Slovo %c nije malo slovo.", a);
-    }
-    else {
+    else 
         printf("Slovo %c je malo slovo.", a);
-    }
 }
