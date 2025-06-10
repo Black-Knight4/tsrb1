@@ -5,18 +5,18 @@
 void main() {
     char a;
     do {
-        printf("upisi znak: ");
+        printf("Upisi znak-znamenku: ");
         scanf(" %c", &a);
-    } while (isalpha(a));
+    } while (!isdigit(a));
  
-    int a_ = a - 48;
+    int br = a - 48;
  
-    for (int i = 2; i <= (a_ / 2); i++) {
-        if (a_ % i == 0) {
-            printf("nije prim");
+    for (int i = 2; i <= (br / 2); i++) {
+        if (br % i == 0) {
+            printf("Broj %d nijie prim.", br);
             return;
         }
     }
  
-    printf("prim je");
+    printf("Broj %d je prim.", br);
 }

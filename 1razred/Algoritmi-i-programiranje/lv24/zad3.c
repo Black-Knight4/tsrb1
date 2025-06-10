@@ -3,13 +3,13 @@
 
 
 void main() {
-    float a, b;
+    float a, b, korijen;
  
     do {
-        printf("enter nums: ");
+        printf("Upisi dva realna pozitivna broja: ");
         scanf("%f %f", &a, &b);
     } while (a < 0 || b < 0 || (int)a == a || (int)b == b);
  
-    float sqrt_ = sqrtf(fmaxf(a, b));
-    printf("sqrt: %f", sqrt_);
+    korijen = sqrtf(fmaxf(a, b));
+    printf("Drugi korijen veceg broja: %f", korijen);
 }

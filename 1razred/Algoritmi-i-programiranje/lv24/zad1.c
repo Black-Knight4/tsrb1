@@ -6,10 +6,14 @@ void main() {
     char a;
  
     do {
-        printf("enter char: ");
+        printf("Upisi slovo: ");
         scanf(" %c", &a);
     } while (!isalpha(a));
  
-    if (isupper(a)) printf("upper");
-    else printf("lower");
+    if (isupper(a)) {
+        printf("Slovo %c nije malo slovo.", a);
+    }
+    else {
+        printf("Slovo %c je malo slovo.", a);
+    }
 }
