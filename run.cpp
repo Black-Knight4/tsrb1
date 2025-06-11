@@ -8,8 +8,6 @@
 namespace fs = std::filesystem;
 
 void clear() {
-    // std::cout << "\033[2J\033[H";
-
 #ifdef _WIN32
         system("cls");
 #else
@@ -18,13 +16,6 @@ void clear() {
 }
 
 void wait() {
-    /*
-    std::cout << "Press Enter to continue...";
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cout << "Press Enter to continue..2.";
-    */
-
 #ifdef _WIN32
     printf("\n\n");
     system("pause");
@@ -43,7 +34,6 @@ void run(std::string path) {
     int res = std::system(command.c_str());
     if (res != 0) {
         std::cout << "Build failed!";
-        // wait();
         return;
     }
 
@@ -52,8 +42,6 @@ void run(std::string path) {
 #else
     system("./out.exe");
 #endif
-
-    // wait();
 }
 
 void lock(fs::path path) {
@@ -62,8 +50,6 @@ void lock(fs::path path) {
     while (true) {
         std::signal(SIGINT, 
             [](int signal) {
-                // std::cin.clear();
-                // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cout << "\n\n^C (SIGINT) caught. Exiting...";
             }
         );
@@ -92,12 +78,7 @@ int main(int argc, char* argv[]) {
     fs::path current = (argc > 1 && fs::is_directory(fs::path(argv[1]))) ? fs::path(argv[1]) : fs::current_path();
 
     while (true) {
-        std::signal(SIGINT, 
-            [](int signal) {
-                // std::cin.clear();
-                // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-        );
+        std::signal(SIGINT, [](int signal) {});
 
         clear();
 
@@ -135,7 +116,6 @@ int main(int argc, char* argv[]) {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cerr << "Invalid input. Exiting.\n";
             continue;
-            // return 1;
         }
 
         if (choice == -1) {
