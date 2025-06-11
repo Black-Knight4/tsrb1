@@ -111,8 +111,10 @@ int main(int argc, char* argv[]) {
         int choice;
         if (!(std::cin >> choice)) {
             std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cerr << "Invalid input. Exiting.\n";
-            return 1;
+            continue;
+            // return 1;
         }
 
         if (choice == -1) {
