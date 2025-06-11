@@ -4,6 +4,8 @@
 
 void main() {
     char a[100];
+    
+    printf("Unesi recenicu: ");
     gets(a);
  
     for (int i = 1; i < strlen(a); i++) {
