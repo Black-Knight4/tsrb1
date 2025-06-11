@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
+#include <csignal>
 
 namespace fs = std::filesystem;
 
@@ -59,20 +60,29 @@ void lock(fs::path path) {
     std::string quotedPath = "\"" + path.string() + "\"";
 
     while (true) {
+        std::signal(SIGINT, 
+            [](int signal) {
+                std::cout << "\n\n^C (SIGINT) caught. Exiting...";
+            }
+        );
+
         clear();
         run(quotedPath);
 
-        std::cout << "\n\n----------------------- " << path.filename().string() << " -----------------------\n";
-        std::cout << "1) Recompile and rerun \n2) Exit \n";
+        chose:
+            std::cout << "\n\n----------------------- " << path.filename().string() << " -----------------------\n";
+            std::cout << "1) Recompile and rerun \n2) Exit \n";
 
-        int choice;
-        if (!(std::cin >> choice) || choice < 1 || choice > 2) {
-            std::cin.clear();
-            std::cerr << "Invalid input. Exiting.\n";
-            return;
-        }
+            int choice;
+            if (!(std::cin >> choice) || choice < 1 || choice > 2) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cerr << "Invalid input, try again.\n";
+                clear();
+                goto chose;
+            }
 
-        if (choice == 2) return;
+            if (choice == 2) return;
     }
 }
 
@@ -80,6 +90,10 @@ int main(int argc, char* argv[]) {
     fs::path current = (argc > 1 && fs::is_directory(fs::path(argv[1]))) ? fs::path(argv[1]) : fs::current_path();
 
     while (true) {
+        std::signal(SIGINT, 
+            [](int signal) {}
+        );
+
         clear();
 
         std::vector<fs::directory_entry> items;
