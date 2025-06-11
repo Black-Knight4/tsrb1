@@ -6,104 +6,147 @@
 
 namespace fs = std::filesystem;
 
-bool hasLast = false;
-std::string last;
-
-void run(std::string quotedPath) {
-	std::string command = "gcc " + quotedPath + " -o out.exe";
-	hasLast = true;
-	last = command;
-#ifdef _WIN32
-	system("cls");
-#else
-	system("clear");
-#endif
-
-	system(command.c_str());
+void clear() {
+    // std::cout << "\033[2J\033[H";
 
 #ifdef _WIN32
-	system("out.exe");
-	printf("\n\n");
-	system("pause");
+        system("cls");
 #else
-	system("./out.exe");
-	printf("\n\n");
-	system("echo Press any key to continue...");
-	system("read -n1 -r");
+        system("clear");
 #endif
 }
 
-int main(int argc, char* argv[])
-{
-	fs::path current = (argc > 1) ? fs::path(argv[1]) : fs::current_path();
+void wait() {
+    /*
+    std::cout << "Press Enter to continue...";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "Press Enter to continue..2.";
+    */
 
-	while (true)
-	{
 #ifdef _WIN32
-		system("cls");
+    printf("\n\n");
+    system("pause");
 #else
-		system("clear");
+    printf("\n\n");
+    printf("echo Press any key to continue...");
+    system("read -n1 -r");
 #endif
-		std::vector<fs::directory_entry> items;
-		items.reserve(64);
 
-		for (const auto& e : fs::directory_iterator(current))
-			items.push_back(e);
+}
 
-		std::sort(items.begin(), items.end(), [](const auto& a, const auto& b) {
-			if (a.is_directory() != b.is_directory())
-				return a.is_directory();
-			return a.path().filename() < b.path().filename();
-			});
+void run(std::string path) {
+    std::string command = "gcc " + path + " -o out.exe";
+    clear();
 
-		if (current.has_parent_path())
-			std::cout << "0) ..\n";
+    int res = std::system(command.c_str());
+    if (res != 0) {
+        std::cout << "Build failed!";
+        // wait();
+        return;
+    }
 
-		for (std::size_t i = 0; i < items.size(); ++i) {
-			const auto& p = items[i].path();
-			std::cout << i + 1 << ") "
-				<< p.filename().string()
-				<< (items[i].is_directory() ? "/" : "")
-				<< '\n';
-		}
+#ifdef _WIN32
+    system("out.exe");
+#else
+    system("./out.exe");
+#endif
 
-		std::size_t choice{};
-		if (!(std::cin >> choice)) {
-			std::cerr << "Invalid input. Exiting.\n";
-			return 1;
-		}
+    // wait();
+}
 
-		if (choice == -1) {
-			continue;
-		}
+void lock(std::string path) {
+    while (true) {
+        clear();
+        run(path);
 
-		if (choice == -2) {
-			break;
-		}
+        std::cout << "\n\n-----------------------------------------------\n";
+        std::cout << "1) Recompile and rerun \n2) Exit \n";
 
-		if (choice == 0 && current.has_parent_path()) {
-			current = current.parent_path();
-			continue;
-		}
+        int choice;
+        if (!(std::cin >> choice) || choice < 1 || choice > 2) {
+            std::cin.clear();
+            std::cerr << "Invalid input. Exiting.\n";
+            return;
+        }
 
-		if (choice < 1 || choice > items.size()) {
-			std::cout << "Out of range.\n";
-			continue;
-		}
+        if (choice == 2) return;
+    }
+}
 
-		const fs::directory_entry& selected = items[choice - 1];
+int main(int argc, char* argv[]) {
+    fs::path current = (argc > 1) ? fs::path(argv[1]) : fs::current_path();
 
-		if (selected.is_directory()) {
-			current = selected;
-		}
-		else {
-			std::cout << "\nYou picked file: " << selected.path().filename().string() << "\n";
+    while (true) {
+        clear();
 
-			fs::path fullPath = current / selected.path().filename();
+        std::vector<fs::directory_entry> items;
 
-			std::string quotedPath = "\"" + fullPath.string() + "\"";
-			run(quotedPath);
-		}
-	}
-	return 0;
+        std::size_t dir_size =  std::distance(fs::directory_iterator(current), fs::directory_iterator{});
+        items.reserve(dir_size);
+
+        for (const auto& item : fs::directory_iterator(current))
+            items.push_back(item);
+
+        std::sort(items.begin(), items.end(), 
+            [](const auto& a, const auto& b) {
+                if (a.is_directory() != b.is_directory()) 
+                    return a.is_directory();
+                    
+                return a.path().filename() < b.path().filename();
+            }
+        );
+
+        if (current.has_parent_path())
+            std::cout << "0) ..\n";
+
+        for (std::size_t i = 0; i < items.size(); i++) {
+            const auto& path = items[i].path();
+            std::cout << i + 1 << ") "
+                << path.filename().string()
+                << (items[i].is_directory() ? "/" : "")
+                << '\n';
+        }
+
+        int choice;
+        if (!(std::cin >> choice)) {
+            std::cin.clear();
+            std::cerr << "Invalid input. Exiting.\n";
+            return 1;
+        }
+
+        if (choice == -1) {
+            continue;
+        }
+
+        if (choice == -2) {
+            break;
+        }
+
+        if (choice == 0 && current.has_parent_path()) {
+            current = current.parent_path();
+            continue;
+        }
+
+        if (choice < 1 || choice > items.size()) {
+            std::cout << "Out of range.\n";
+            continue;
+        }
+
+        const fs::directory_entry& selected = items[choice - 1];
+
+        if (selected.is_directory()) {
+            current = selected;
+        } else if (selected.is_regular_file()) {
+            std::cout << "\nYou picked file: " << selected.path().filename().string() << "\n";
+
+            fs::path fullPath = current / selected.path().filename();
+            std::string quotedPath = "\"" + fullPath.string() + "\"";
+            lock(quotedPath);
+        } else 
+            std::cout << "\nFile you picked no longer exists";
+        
+    }
+
+    return 0;
 }
