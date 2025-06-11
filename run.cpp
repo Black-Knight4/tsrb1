@@ -75,7 +75,7 @@ void lock(std::string path) {
 }
 
 int main(int argc, char* argv[]) {
-    fs::path current = (argc > 1) ? fs::path(argv[1]) : fs::current_path();
+    fs::path current = (argc > 1 && fs::is_directory(fs::path(argv[1]))) ? fs::path(argv[1]) : fs::current_path();
 
     while (true) {
         clear();
