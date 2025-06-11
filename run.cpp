@@ -60,7 +60,7 @@ void lock(std::string path) {
         clear();
         run(path);
 
-        std::cout << "\n\n-----------------------------------------------\n";
+        std::cout << "\n\n----------------------- " << fs::path(path).filename().string() << " -----------------------\n";
         std::cout << "1) Recompile and rerun \n2) Exit \n";
 
         int choice;
