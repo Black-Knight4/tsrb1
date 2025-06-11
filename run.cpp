@@ -62,6 +62,8 @@ void lock(fs::path path) {
     while (true) {
         std::signal(SIGINT, 
             [](int signal) {
+                // std::cin.clear();
+                // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cout << "\n\n^C (SIGINT) caught. Exiting...";
             }
         );
@@ -91,7 +93,10 @@ int main(int argc, char* argv[]) {
 
     while (true) {
         std::signal(SIGINT, 
-            [](int signal) {}
+            [](int signal) {
+                // std::cin.clear();
+                // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
         );
 
         clear();
