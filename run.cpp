@@ -55,12 +55,14 @@ void run(std::string path) {
     // wait();
 }
 
-void lock(std::string path) {
+void lock(fs::path path) {
+    std::string quotedPath = "\"" + path.string() + "\"";
+
     while (true) {
         clear();
-        run(path);
+        run(quotedPath);
 
-        std::cout << "\n\n----------------------- " << fs::path(path).filename().string() << " -----------------------\n";
+        std::cout << "\n\n----------------------- " << path.filename().string() << " -----------------------\n";
         std::cout << "1) Recompile and rerun \n2) Exit \n";
 
         int choice;
@@ -143,8 +145,7 @@ int main(int argc, char* argv[]) {
             std::cout << "\nYou picked file: " << selected.path().filename().string() << "\n";
 
             fs::path fullPath = current / selected.path().filename();
-            std::string quotedPath = "\"" + fullPath.string() + "\"";
-            lock(quotedPath);
+            lock(fullPath);
         } else 
             std::cout << "\nFile you picked no longer exists";
         
