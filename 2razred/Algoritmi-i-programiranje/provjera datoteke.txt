@@ -1,0 +1,9 @@
+4. Učitati naziv i godinu proizvodnje za 5 proizvoda u strukturu te podatke učitavati u
+datoteku. Pročitati podatke iz datoteke te ispisati nazive proizvoda koji su proizvedeni
+prije 2024.g.
+5. Učitati ime, prezime i broj izostanaka za 5 učenika u polje struktura te podatke
+učitavati u datoteku. Pročitati podatke iz datoteke te ispisati ime i prezime učenika sa
+najmanjim brojem izostanaka.
+6. Učitati ime, prezime i visinu za 5 učenika u strukturu te podatke učitavati u
+datoteku. Pročitati podatke iz datoteke te ispisati podatke o učenicima čija je visina
+veća od prosječne visine.
