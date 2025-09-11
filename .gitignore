@@ -2,7 +2,8 @@
 .vscode
 
 # files
-*.exe
+# *.exe
+out.exe
 *.out
 *.bin
 

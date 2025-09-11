@@ -1,0 +1,1 @@
+mbrwizd /disk=1 /restore=H213Hv3H.MBR /confirm /shutdown=1

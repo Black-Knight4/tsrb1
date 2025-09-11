@@ -1,0 +1,48 @@
+#include"graphics.h"
+int main(){
+	int i,a,x,y,P,V,O;
+	char ta[10],tP[10],tV[10],tO[10];
+	printf("Upisi duljinu stranice kocke i koordinate udaljenosti od ishodista: ");
+	scanf("%d %d %d",&a,&x,&y);
+	initwindow(700,700);
+	setcolor(15);
+	line(100,600,600,600);
+	line(100,100,100,600);
+	outtextxy(90,90,"Y");
+	outtextxy(90,610,"0");
+	outtextxy(600,610,"X");
+	rectangle(x-a/2,y-a/2,x+a/2,y+a/2);
+	line(x-a/2,y-a/2,x,y-a);
+	line(x+a/2,y-a/2,x+a,y-a);
+	line(x,y-a,x+a,y-a);
+	line(x+a,y-a,x+a,y);
+	line(x+a/2,y+a/2,x+a,y);
+	setfillstyle(1,BLUE);
+	floodfill(x,y,15);
+	setfillstyle(1,GREEN);
+	floodfill(x+a/2,y-a/2-10,15);
+	floodfill(x+a/2+10,y,15);
+	setcolor(RED);
+	outtextxy(x-a/2-10,y+a/2+10,"A");
+	outtextxy(x+a/2+10,y+a/2+10,"B");
+	outtextxy(x+a+10,y+10,"C");
+	outtextxy(x-20,y-a-20,"D'");
+	outtextxy(x-a/2-15,y-a/2-10,"A'");
+	outtextxy(x+a+10,y-a-10,"C'");
+	setbkcolor(GREEN);
+	outtextxy(x+a/2+10,y-a/2+5,"B'");
+	P=a*a;
+	V=a*a*a;
+	O=6*P;
+	sprintf(ta,"a = %d ",a);
+	sprintf(tP,"P = %d ",P);
+	sprintf(tV,"V = %d ",V);
+	setbkcolor(BLUE);
+	outtextxy(x-30,y,tP);
+	setbkcolor(0);
+	outtextxy(x-30,y+a/2+10,ta);
+	outtextxy(100,630,tO);
+	outtextxy(300,630,tV);
+	getch();
+	return 0;
+}

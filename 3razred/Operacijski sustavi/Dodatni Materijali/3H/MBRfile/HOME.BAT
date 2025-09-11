@@ -1,0 +1,1 @@
+mbrwizd /disk=1 /restore=h1.mbr /confirm /shutdown=1

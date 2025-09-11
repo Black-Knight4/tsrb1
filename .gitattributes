@@ -1,0 +1,5 @@
+3razred/Mikroupravljaci/APP/arduino-1.8.19-windows[[:space:]](1).exe filter=lfs diff=lfs merge=lfs -text
+3razred/Dijagnostika[[:space:]]i[[:space:]]odrzavanje[[:space:]]informacijskih[[:space:]]sustava/APP/PacketTracer800_Build212_64bit_setup-signed.exe filter=lfs diff=lfs merge=lfs -text
+3razred/Multimedija/APPL/blender-4.2.1-windows-x64.msi filter=lfs diff=lfs merge=lfs -text
+3razred/Operacijski[[:space:]]sustavi/OSAppl/VirtualBox-5.2.18-124319-Win.exe filter=lfs diff=lfs merge=lfs -text
+3razred/Operacijski[[:space:]]sustavi/Dodatni[[:space:]]Materijali/Virtual[[:space:]]USB/VirtualBox-5.1.6-110634-Win.exe filter=lfs diff=lfs merge=lfs -text
