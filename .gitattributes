@@ -3,3 +3,5 @@
 3razred/Multimedija/APPL/blender-4.2.1-windows-x64.msi filter=lfs diff=lfs merge=lfs -text
 3razred/Operacijski[[:space:]]sustavi/OSAppl/VirtualBox-5.2.18-124319-Win.exe filter=lfs diff=lfs merge=lfs -text
 3razred/Operacijski[[:space:]]sustavi/Dodatni[[:space:]]Materijali/Virtual[[:space:]]USB/VirtualBox-5.1.6-110634-Win.exe filter=lfs diff=lfs merge=lfs -text
+Lab6_Share/CiscoPacketTracer822_64bit_setup_signed.exe filter=lfs diff=lfs merge=lfs -text
+Lab6_Share/SJIWP/xampp-windows-x64-8.0.30-0-VS16-installer.exe filter=lfs diff=lfs merge=lfs -text
