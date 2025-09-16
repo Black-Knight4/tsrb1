@@ -19,7 +19,17 @@ kolekcija svih laboratorijskih vjezbi zajedno sa rjesenjima
 
 ### 3. Razred
 
+[Dijagnostika i odrzavanje informacijskih sustava](https://github.com/Josakko/tsrb/tree/main/3razred/Dijagnostika%20i%20odrzavanje%20informacijskih%20sustava)  
+[Građa Racunala](https://github.com/Josakko/tsrb/tree/main/3razred/Grada%20Racunala)  
+[Mikroupravljaci](https://github.com/Josakko/tsrb/tree/main/3razred/Mikroupravljaci)  
+[Multimedija](https://github.com/Josakko/tsrb/tree/main/3razred/Multimedija)  
+[Napredno i objektno programiranje](https://github.com/Josakko/tsrb/tree/main/3razred/Napredno%20i%20objektno%20programiranje)  
+[Operacijski sustavi](https://github.com/Josakko/tsrb/tree/main/3razred/Operacijski%20sustavi)  
+[Primjenjena matematika](https://github.com/Josakko/tsrb/tree/main/3razred/Primjenjena%20matematika)  
+[Programiranje](https://github.com/Josakko/tsrb/tree/main/3razred/Programiranje)  
+[Racunalstvo](https://github.com/Josakko/tsrb/tree/main/3razred/Racunalstvo)  
 
+### 4. Razred
 
 ## Notes
 
