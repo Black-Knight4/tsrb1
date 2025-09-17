@@ -2,10 +2,11 @@
 .vscode
 
 # files
-# *.exe
-out.exe
+# had to comment out to commit some *needed* exe files
+*.exe 
 *.out
 *.bin
+run
 
 # vs stuff
 .vs
