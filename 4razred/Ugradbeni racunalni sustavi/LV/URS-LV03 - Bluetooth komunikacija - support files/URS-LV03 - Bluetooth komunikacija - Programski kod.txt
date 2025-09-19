@@ -1,0 +1,182 @@
+/*
+Neki dijelovi koda preuzeti iz:
+PROJECT: ArduDroid
+PROGRAMMER: Hazim Bitar (techbitar at gmail dot com)
+DATE: Oct 31, 2013
+FILE: ardudroid.ino
+LICENSE: Public domain
+*/
+
+#define START_CMD_CHAR '*'
+#define END_CMD_CHAR '#'
+#define DIV_CMD_CHAR '|'
+
+#define CMD_DIGITALWRITE 10
+#define CMD_ANALOGWRITE 11
+#define CMD_TEXT 12
+#define CMD_SEND 13
+
+#define PIN_HIGH 1
+#define PIN_LOW 0
+
+#include <JC_Button.h>          // https://github.com/JChristensen/JC_Button
+const byte pin_SW1 = 7;
+Button myButton(pin_SW1);       // kreiranje objekta myButton
+
+int PIN_POT_A0 = A0;
+int nPOT_A0_value = 0;
+
+#include <SoftwareSerial.h>
+SoftwareSerial BTSerial(10, 11); // Software RX | TX
+
+String inText;
+
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h> 
+LiquidCrystal_I2C lcd(0x3f, 16, 2);
+
+void setup()
+{
+	Serial.begin(9600);	// inicijalizacija HARDVERSKE serijske komunikacije
+					// za ispis na Serial monitor
+	BTSerial.begin(115200);	// inicijalizacija SOFTVERSKE serijske komunikacije
+					// za komunikaciju s BT modulom preko pinova 10 i 11
+	myButton.begin();		// inicijalizacija objekta myButton
+
+	pinMode(2, OUTPUT);	// pin 2 za LED izlazni
+	pinMode(3, OUTPUT);	// pin 3 za LED izlazni
+	pinMode(4, OUTPUT);	// pin 4 za LED izlazni
+	pinMode(5, OUTPUT);	// pin 5 za LED izlazni
+	pinMode(13, OUTPUT);	// pin 13 za LED izlazni
+
+	pinMode(PIN_POT_A0, INPUT);
+
+	lcd.begin();    		// inicijaliziranje LCD-a
+	lcd.backlight();    	// uključivanje pozadinskog osvjetljenja LCD-a
+	lcd.setCursor(0, 0);
+	lcd.print("Cekam tekst...");
+
+	Serial.print("Start...\n");
+}
+
+void loop()
+{
+	static bool ledState;       // varijabla koja sadrži stanje LED
+	myButton.read();            // čitanje stanja tipkala
+
+	nPOT_A0_value = analogRead(PIN_POT_A0);
+
+	if (myButton.wasPressed())    // ako je tipkalo bilo jednom pritisnuto
+	{
+		ledState = !ledState;
+		digitalWrite(13, ledState);
+		BTSerial.print(nPOT_A0_value);  	// Slanje vrijednosti na SOFTVERSKI
+								// serijski port 10(RX) 11(TX)
+
+	}
+
+	BTSerial.flush();		// čeka dovršetak primanja znaka na serijski spremnik
+
+	if (BTSerial.available() < 1) return;   	// čekam podatke sa softverskog
+// serijskog porta
+
+	char start_flag = " ";
+	int ard_command = 0;
+	int pin_num = 0;
+	int pin_value = 0;
+
+	//ard_command = Serial.parseInt();  // čita 1. vrijednost (naredba)
+	//pin_num = Serial.parseInt();      // čita 2. vrijednost (PIN)
+	//pin_value = Serial.parseInt();    // čita 3. vrijednost (vrijednost)
+
+	start_flag = BTSerial.read();  // čita jedan znak iz serijskog spremnika
+	delay(20);
+
+	ard_command = BTSerial.read();  // čita 1. vrijednost (naredba)
+	delay(20);
+	pin_num = BTSerial.read();      // čita 2. vrijednost (PIN)
+	delay(20);
+	pin_value = BTSerial.read();    // čita 3. vrijednost (vrijednost)
+							
+	Serial.print("start flag\t");
+	Serial.print(start_flag);
+
+	Serial.print("\tard_command\t");
+	Serial.print(ard_command);
+
+	Serial.print("\tpin_num\t");
+	Serial.print(pin_num);
+
+	Serial.print("\tpin_value\t");
+	Serial.print(pin_value);
+
+	Serial.print("\n");
+
+	if (start_flag != START_CMD_CHAR) return; // ako znak nije oznaka za početak
+ // komunikacije, izlaz u loop()  
+
+	if (!(ard_command == 10 | ard_command == 11 | ard_command == 12 | 
+ard_command == 13)) return; // provjera naredbe
+
+	if (ard_command == CMD_DIGITALWRITE) {
+		Serial.println("CMD_DIGITALWRITE");
+		if (!(pin_num == 2 | pin_num == 4 | pin_num == 13)) return; // provjera
+  // pina
+		if (pin_value == PIN_LOW) pin_value = LOW;
+		else if (pin_value == PIN_HIGH) pin_value = HIGH;
+		else return;      		// za bilo koju drugu primljenu vrijednost 
+						 	// vrati se petlji loop() 
+		digitalWrite(pin_num, pin_value);
+
+		return;
+	}
+	// ZADATAK 05
+	if (ard_command == CMD_ANALOGWRITE) {
+		Serial.println("CMD_ANALOGWRITE");
+		if (!(pin_num == 3 | pin_num == 5)) return // provjera primljenog pina
+			pin_value = constrain(pin_value, 0, 255); // ograničava primljenu
+ // vrijednost u zadani 
+										 // interval 0 do 255
+		analogWrite(pin_num, pin_value);
+		return;
+	}
+	// ZADATAK 06
+	if (ard_command == CMD_SEND) {
+		Serial.println("CMD_SEND");
+		nPOT_A0_value = analogRead(PIN_POT_A0);
+		BTSerial.print(nPOT_A0_value);  // Slanje vrijednosti na SOFTVERSKI
+		return;
+	}
+
+	// ZADATAK 07
+	if (ard_command == CMD_TEXT) {
+		Serial.println("CMD_TEXT");
+		inText = ""; //clears variable for new input
+		while (BTSerial.available()) {
+			char c = BTSerial.read();  //prihvat jednog bajta iz spremnika
+			delay(10);
+			if (c == END_CMD_CHAR) {  	// kad primim dogovoreni znak za
+// završetak znakovnog niza
+// odradi slijedeće
+				Serial.print("Primio string: ");
+				Serial.println(inText);
+
+				lcd.setCursor(0, 0);
+				lcd.print("Primio tekst:  ");
+
+				lcd.setCursor(0, 1);
+				lcd.print("                ");
+				lcd.setCursor(0, 1);
+				lcd.print(inText);
+				break;
+			}
+			else {
+				if (c != DIV_CMD_CHAR) {
+					inText += c;
+					delay(10);
+				}
+			}
+		}
+	}
+
+}

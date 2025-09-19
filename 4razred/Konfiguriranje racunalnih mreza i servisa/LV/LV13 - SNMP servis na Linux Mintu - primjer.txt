@@ -1,0 +1,19 @@
+Otvoriti dva TABa
+
+U jednom tabu upisati:
+
+sudo snmptrapd -CdfLo --disableAuthorization=yes
+
+
+U drugom tabu:
+
+----> Za prikaz svih podržanih OID vrijednosti
+
+snmpwalk -v 2c -c public localhost
+
+----> Za izmjenu jedne od njih
+sudo snmptrap -v 2c -c public localhost '' 1.3.4.1.2.1.1.6.0 1.3.4.1.2.1.1.6.0 s "Standing on the Dock of the Bay"
+
+
+
+Pratiti na prvom tabu izmjenu

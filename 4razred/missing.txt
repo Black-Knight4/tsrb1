@@ -1,0 +1,3 @@
+proxmox iso
+truenas iso
+virtualne masine dir

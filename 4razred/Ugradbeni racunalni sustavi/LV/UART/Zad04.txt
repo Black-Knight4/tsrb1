@@ -1,0 +1,56 @@
+#include <JC_Button.h>
+#include <SoftwareSerial.h>
+
+SoftwareSerial Serial_A(10, 11);
+
+const byte sw1 = 7;
+const byte sw2 = 6;
+const byte led = 2;
+const byte led2 = 3;
+
+Button btn(sw1, 50, true, true);
+Button btn2(sw2, 50, true, true);
+
+void setup() {
+  Serial.begin(9600);
+  Serial_A.begin(9600);
+  Serial_A.setTimeout(10);
+  btn.begin();
+  btn2.begin();
+  pinMode(led, OUTPUT);
+  pinMode(led2, OUTPUT);
+}
+
+void loop() {
+  static bool ledState;
+  static bool ledState2;
+  static int ledStrength;
+  btn.read();
+  btn2.read();
+  if (btn.wasPressed()) {
+    ledState = !ledState;
+    digitalWrite(led, ledState);
+    ledStrength = map(analogRead(A0), 0, 1024, 0, 255);
+    Serial_A.print(ledStrength);
+  }
+  if (btn2.wasPressed()) {
+    ledState2 = !ledState2;
+    Serial_A.print(ledState2);
+  }
+
+  if (Serial_A.available() < 1) return;
+  int pinValue = Serial_A.parseInt();
+  Serial.print("pinValue\t");
+  Serial.print(pinValue);
+  Serial.print("\n");
+
+  if (pinValue == 0) pinValue = LOW;
+  else if (pinValue == 1) pinValue = HIGH;
+  else if (pinValue <= 255 && pinValue >= 2) {
+    analogWrite(led2, pinValue);
+    return;
+  }
+  else return;
+
+  digitalWrite(led2, pinValue);
+}
