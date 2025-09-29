@@ -11,7 +11,7 @@ void main() {
     }
 
     for (int i = 0; i < 5; i++) {
-        des[i] = a[i] / 10;
+        des[i] = (a[i] % 100) / 10;
         jed[i] = a[i] % 10;
     }
 
